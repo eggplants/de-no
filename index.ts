@@ -3,10 +3,11 @@ import { serve } from "https://deno.land/x/sift@0.4.2/mod.ts";
 
 const show_video = (show: boolean): string => {
   if (show) {
-    return `<iframe width="560" height="315"
-    src="https://www.youtube.com/embed/HtY3R9oL6OM"
-    title="YouTube video player" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    return `<div class="embed-container">
+    <iframe
+     src="https://www.youtube.com/embed/HtY3R9oL6OM"
+     title="YouTube video player" frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
     </iframe>`;
   } else {
     return ""
@@ -53,12 +54,41 @@ const page = (
       rel="shortcut icon"
       href="https://dash.deno.com/static/favicon.ico"
     />
+    <style>
+      main {
+        text-align: center;
+      }
+      .embed-container {
+        position: relative;
+        padding-bottom: 56%;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+      }
+      .embed-container iframe,
+      .embed-container object,
+      .embed-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
   </head>
   <body>
     <main>
       <h1>${body}</h1>
       ${show_video(video)}
     </main>
+    <marquee>
+      リポジトリ:
+      <a href="https://github.com/eggplants/de-no">eggplants/de-no</a>,
+      Deployed at:
+      <a href="https://deno.dev">
+        deno.dev
+      </a>
+    </marquee>
   </body>
 </html>
 `.trim(), { "headers": { "content-type": "text/html; charset=utf-8" } }
