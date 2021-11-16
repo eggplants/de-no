@@ -80,10 +80,10 @@ const page = (title: string, body: string, video: boolean): Response =>
       ${show_video(video)}
     </main>
     <marquee>
-      リポジトリ: <a href="https://github.com/eggplants/de-no">eggplants/de-no</a>,
+      リポジトリ: <a href="https://github.com/eggplants/de-no" target="_blank">eggplants/de-no</a>,
       Deployed at:
-      <a href="https://deno.dev">deno.dev</a>,
-      Share on <a href="https://twitter.com/intent/tweet?url=https://xn--i7j4hwa.deno.dev">Twitter!</a>
+      <a href="https://deno.dev" target="_blank">deno.dev</a>,
+      Share on <a href="https://twitter.com/intent/tweet?url=https://xn--i7j4hwa.deno.dev" target="_blank">Twitter!</a>
     </marquee>
   </body>
 </html>
