@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "baseUrl": ".",
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSourceMap": true,
@@ -8,12 +9,10 @@
     "jsx": "react",
     "lib": [
       "dom",
-      "deno.ns",
-      "deno.unstable"
     ],
       "module": "esnext",
       "strict": true,
-      "target": "esnext",
+      "target": "es2019",
       "useDefineForClassFields": true
   }
 }

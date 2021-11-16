@@ -1,4 +1,5 @@
-import { serve } from "./deps.ts";
+// @ts-ignore
+import { serve } from "https://deno.land/x/sift@0.4.2/mod.ts";
 
 const show_video = (show: boolean): string => {
   if (show) {
@@ -13,7 +14,7 @@ const show_video = (show: boolean): string => {
 }
 
 const page = (
-    title: string, body: string, video: boolean
+  title: string, body: string, video: boolean
 ): Response =>
   new Response(`
 <!DOCTYPE html>
@@ -60,8 +61,8 @@ const page = (
     </main>
   </body>
 </html>
-`.trim(), {"headers": {"content-type": "text/html; charset=utf-8"}}
-);
+`.trim(), { "headers": { "content-type": "text/html; charset=utf-8" } }
+  );
 
 
 serve({
