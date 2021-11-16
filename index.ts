@@ -1,23 +1,21 @@
-// @ts-ignore
 import { serve } from "https://deno.land/x/sift@0.4.2/mod.ts";
 
 const show_video = (show: boolean): string => {
   if (show) {
     return `<div class="embed-container">
     <iframe
-     src="https://www.youtube.com/embed/HtY3R9oL6OM"
+     src="https://www.youtube.com/embed/HtY3R9oL6OM?autoplay=1"
      title="YouTube video player" frameborder="0"
      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
     </iframe>`;
   } else {
-    return ""
+    return "";
   }
-}
+};
 
-const page = (
-  title: string, body: string, video: boolean
-): Response =>
-  new Response(`
+const page = (title: string, body: string, video: boolean): Response =>
+  new Response(
+    `
 <!DOCTYPE html>
 <html lang="ja-JP">
   <head>
@@ -91,9 +89,9 @@ const page = (
     </marquee>
   </body>
 </html>
-`.trim(), { "headers": { "content-type": "text/html; charset=utf-8" } }
+  `.trim(),
+    { headers: { "content-type": "text/html; charset=utf-8" } }
   );
-
 
 serve({
   "/": () => page("de~no deno", "おねえさんみてみて🎶", true),
